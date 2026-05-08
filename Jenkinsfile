@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run New Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 --name app-container himanshu1306/app-ci:latest'
+                sh 'docker run -d -p 3000:3000 --name trusting_buck himanshu1306/app-ci:latest'
             }
         }
     }
