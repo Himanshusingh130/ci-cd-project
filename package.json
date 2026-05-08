@@ -1,0 +1,13 @@
+{
+  "name": "ci-cd-project",
+  "version": "1.0.0",
+  "description": "CI/CD Pipeline using GitHub Actions, Docker and Jenkins",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Test Passed\""
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
