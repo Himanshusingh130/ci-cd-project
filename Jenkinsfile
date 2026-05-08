@@ -5,7 +5,7 @@ pipeline {
 
         stage('Pull Docker Image') {
             steps {
-                sh 'docker pull YOUR_DOCKER_USERNAME/app-ci:latest'
+                sh 'docker pull himanshu1306/app-ci:latest'
             }
         }
 
