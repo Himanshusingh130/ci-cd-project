@@ -15,9 +15,10 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            steps {
-                dir('app') {
-                    bat 'docker build -t %IMAGE_NAME%:latest .'
+    steps {
+        bat 'docker build -t %IMAGE_NAME%:latest .'
+    }
+}
                 }
             }
         }
