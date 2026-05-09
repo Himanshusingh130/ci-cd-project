@@ -1,42 +1,17 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = "himanshu1306/app-ci"
-    }
-
     stages {
-
-        stage('Checkout') {
+        stage('Clone Repo') {
             steps {
-                git 'https://github.com/Himanshusingh130/ci-cd-project'
+                git branch: 'main',
+                url: 'https://github.com/Himanshusingh130/ci-cd-project.git'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Test') {
             steps {
-                dir('app') {
-                    bat 'docker build -t %IMAGE_NAME%:latest .'
-                }
-            }
-        }
-
-        stage('Docker Login') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-
-                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
-                }
-            }
-        }
-
-        stage('Push Image') {
-            steps {
-                bat 'docker push %IMAGE_NAME%:latest'
+                echo 'Repository cloned successfully'
             }
         }
     }
